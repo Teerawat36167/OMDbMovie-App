@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import movieAPI from '../../api/MovieApi'
+import movieApi from '../../api/MovieApi'
 import { APIKey } from '../../api/MovieApiKey'
 import { useDispatch } from 'react-redux' // Update redux store
 import { addMovie } from '../../store/Reducer'
@@ -14,12 +14,14 @@ const Home = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             const searchKey = search ? search : "Thor"
-            const res = await movieAPI.get(`?apikey=${APIKey}&s=${searchKey}&type=movie`)
+            const res = await movieApi.get(`?apikey=${APIKey}&s=${searchKey}&type=movie`)
 
             setTimeout(() => {
-                dispatch(addMovie) // Update to store
+                dispatch(addMovie(res.data.Search)) // Update to store
             }, 500)
         }
+
+        fetchMovies()
     }, [])
 
     return (
