@@ -5,6 +5,8 @@ import { APIKey } from '../../api/MovieApiKey'
 import { useDispatch } from 'react-redux' // Update redux store
 import { addMovie } from '../../store/Reducer'
 
+import MovieListing from '../MovieList/MovieList'
+
 const Home = () => {
 
     const dispatch = useDispatch()
@@ -25,7 +27,11 @@ const Home = () => {
     }, [])
 
     return (
-        <div>Home</div>
+        <div>
+            <h3 style={{ margin: "1rem 0"}}>Movies</h3>
+            <input type='text' placeholder='Search...' />
+            <MovieListing />
+        </div>
     )
 }
 
