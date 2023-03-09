@@ -15,7 +15,7 @@ const Home = () => {
     // API
     useEffect(() => {
         const fetchMovies = async () => {
-            const searchKey = search ? search : "Thor"
+            const searchKey = search ? search : "superman"
             const res = await movieApi.get(`?apikey=${APIKey}&s=${searchKey}&type=movie`)
 
             setTimeout(() => {
