@@ -21,10 +21,29 @@ const MovieDetail = () => {
             setMovie(res.data)
             setLoading(true)
         }
+
+        fetchDetail()
     }, [])
 
     return (
-        <div>MovieDetail</div>
+        <div>
+            {loading ? (
+                <div className='movie-detail-con'>
+                    <div className='movie-detail-img'>
+                        <img src={movie.Poster} alt={movie.Title} />
+                    </div>
+                    <div className="movie-detail-info">
+                        <h3>{movie.Title}</h3>
+                        <p style={{ margin: "2rem 0" }}>{movie.Plot}</p>
+                        <div>
+                            <strong>Released : {movie.Released}</strong>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                <h4 style={{ margin: "1rem 0" }}>Loading...</h4>
+            )}
+        </div>
     )
 }
 
