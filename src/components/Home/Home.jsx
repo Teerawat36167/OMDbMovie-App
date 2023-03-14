@@ -7,10 +7,13 @@ import { addMovie } from '../../store/Reducer'
 
 import MovieListing from '../MovieList/MovieList'
 
+import './Home.scss'
+
 const Home = () => {
 
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
+    console.log(search)
 
     // API
     useEffect(() => {
@@ -24,12 +27,12 @@ const Home = () => {
         }
 
         fetchMovies()
-    }, [])
+    }, [search]) 
 
     return (
         <div>
             <h3 style={{ margin: "1rem 0"}}>Movies</h3>
-            <input type='text' placeholder='Search...' />
+            <input type='text' placeholder='Search...' value={search} onChange={(e) => setSearch(e.target.value)} />
             <MovieListing />
         </div>
     )
