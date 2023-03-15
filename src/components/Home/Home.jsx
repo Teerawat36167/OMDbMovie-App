@@ -13,7 +13,6 @@ const Home = () => {
 
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
-    console.log(search)
 
     // API
     useEffect(() => {

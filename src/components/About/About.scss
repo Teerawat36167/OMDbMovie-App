@@ -1,0 +1,17 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    h2 {
+        padding: 1rem;
+    }
+
+    p {
+        margin: 1rem;
+    }
+
+    li::marker {
+        content: "⯈";
+    }
+}
